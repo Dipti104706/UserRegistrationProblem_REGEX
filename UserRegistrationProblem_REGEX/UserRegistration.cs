@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace UserRegistrationProblem_REGEX
 {/// <summary>
-/// UC3 creating regular expression for validating user email
+/// UC4 creating regular expression for validating phone number
 /// </summary>
     class UserRegistration
     {
         //writing the valid pattern
-        string email = "^[a-zA-Z0-9]+[._+-]{0,1}[a-zA-Z0-9]*@[a-zA-Z0-9]{1,10}.[a-zA-Z]{2,10}[.]*[a-zA-Z]*$";
-        string[] inputs = {"abc@yahoo.com","abc","abc@.com.my"};
+        string phone = "^[0-9]{2}[  ]*[0-9]{10}$";
+        string[] inputs = {"91 7055264706","9002456578"};
 
         /// <summary>
         /// Validation this instance.
         /// </summary>
         public void Validation()
         {
-            Regex regex1 = new Regex(email);
+            Regex regex1 = new Regex(phone);
             Console.WriteLine("Validating Email id: ");
             ItarateLoop(inputs, regex1);
         }
