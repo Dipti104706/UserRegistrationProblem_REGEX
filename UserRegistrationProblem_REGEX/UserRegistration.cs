@@ -12,15 +12,15 @@ namespace UserRegistrationProblem_REGEX
     class UserRegistration
     {
         //writing the valid pattern
-        string phone = "^[0-9]{2}[  ]*[0-9]{10}$";
-        string[] inputs = {"91 7055264706","9002456578"};
+        string password = "^[a-zA-z]{8,}$";
+        string[] inputs = {"asdcfghj","asd","AASDEFFAgkkhkhu"};
 
         /// <summary>
         /// Validation this instance.
         /// </summary>
         public void Validation()
         {
-            Regex regex1 = new Regex(phone);
+            Regex regex1 = new Regex(password);
             Console.WriteLine("Validating Email id: ");
             ItarateLoop(inputs, regex1);
         }
