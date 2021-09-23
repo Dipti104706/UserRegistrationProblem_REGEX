@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace UserRegistrationProblem_REGEX
 {/// <summary>
-/// UC4 creating regular expression for validating phone number
+/// UC6 creating regular expression for validating password with at least one uppercase
 /// </summary>
     class UserRegistration
     {
         //writing the valid pattern
-        string password = "^[a-zA-z]{8,}$";
-        string[] inputs = {"asdcfghj","asd","AASDEFFAgkkhkhu"};
+        string password = "^[a-zA-Z]{1,}[A-Z]{1,}[a-zA-Z]*";
+        string[] inputs = {"sdAcfghj","asd","AASDEFFAgkkhkhu"};
 
         /// <summary>
         /// Validation this instance.
