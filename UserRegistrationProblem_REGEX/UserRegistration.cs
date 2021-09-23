@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace UserRegistrationProblem_REGEX
 {/// <summary>
-/// UC7 creating regular expression for validating password with at least one numeric value
+/// UC8 creating regular expression for validating password with at least one special character
 /// </summary>
     class UserRegistration
     {
         //writing the valid pattern
-        string password = "^[a-zA-Z]*[A-Z]*[0-9]+[a-zA-Z]*$";
-        string[] inputs = {"sdAcf1ghj","asd","AASDEFFAgkkhkhu"};
+        string password = "^[a-zA-Z0-9]{1,}[A-Z]*[0-9]*[@&#%$*_-]+[a-zA-Z0-9]*$";
+        string[] inputs = {"sdAc@f1ghj","Aa1sd","AASDEFFAgkkhkhu"};
 
         /// <summary>
         /// Validation this instance.
