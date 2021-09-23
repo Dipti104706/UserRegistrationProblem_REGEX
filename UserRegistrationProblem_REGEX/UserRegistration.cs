@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace UserRegistrationProblem_REGEX
 {/// <summary>
-/// UC8 creating regular expression for validating password with at least one special character
+/// UC9 creating regular expression for testing all email sample
 /// </summary>
     class UserRegistration
     {
         //writing the valid pattern
-        string password = "^[a-zA-Z0-9]{1,}[A-Z]*[0-9]*[@&#%$*_-]+[a-zA-Z0-9]*$";
-        string[] inputs = {"sdAc@f1ghj","Aa1sd","AASDEFFAgkkhkhu"};
-
+        string email = "^[a-zA-Z0-9]+[._+-]{0,1}[a-zA-Z0-9]+@[a-zA-Z0-9]{1,10}[.][a-zA-Z]{2,10}[.]*[a-zA-Z]*$";
+        string[] inputs = {"abc@yahoo.com","abc-100@yahoo.com", "abc.100@yahoo.com","abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au","abc@1.com","abc@gmail.com.com", "abc+100@gmail.com",
+                            "abc","abc@.com.my","abc123@gmail.a","abc123@.com","abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com","abc..2002@gmail.com","abc.@gmail.com","abc@abc@gmail.com","abc@gmail.com.1a","abc@gmail.com.aa.au" };
         /// <summary>
         /// Validation this instance.
         /// </summary>
         public void Validation()
         {
-            Regex regex1 = new Regex(password);
+            Regex regex1 = new Regex(email);
             Console.WriteLine("Validating Email id: ");
             ItarateLoop(inputs, regex1);
         }
