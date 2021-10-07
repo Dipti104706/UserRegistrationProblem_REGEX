@@ -16,44 +16,90 @@ namespace UserUnitTest
             obj = new UserRegistration();
         }
 
-        //TC for validating multiple Email with both valid and invalid case
+        //Tc for testing all invalid cases and through custom exception
+        //
         [TestMethod]
-        [TestCategory("Happygroup")]
-        [DataRow("abc@yahoo.com")]
-        [DataRow("abc-100@yahoo.com")]
-        [DataRow("abc.100@yahoo.com")]
-        [DataRow("abc111@abc.com")]
+        [TestCategory("Customexception")]
+        [DataRow("di", "Invalid First Name")]
 
-        public void MailValidation(string mail)
+        public void InvalidFirstName(string firstName,string expected)
         {
-            //AAA Methology
-            //Arrange
-            string expected = "Valid";
-
-            //ACT
-            var actual = obj.ValidatingEmailId(mail);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                var actual = obj.ValidatingFirstName(firstName);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(expected, ex.message);
+            }
         }
 
+        //TC for validating last name with invalid case
         [TestMethod]
-        [TestCategory("Sadgroup")]
-        [DataRow("abc@.com.my")]
-        [DataRow("abc123@.com")]
-        [DataRow("abc123@.com.com")]
+        [TestCategory("Customexception")]
+        [DataRow("behura", "Invalid Last name")]
 
-        public void InvalidEmail(string mail)
+        public void InvalidLastName(string lastName, string expected)
         {
-            //AAA Methology
-            //Arrange
-            string expected = "Invalid";
+            try
+            {
+                var actual = obj.ValidatingFirstName(lastName);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(expected, ex.message);
+            }
+        }
 
-            //ACT
-            var actual = obj.ValidatingEmailId(mail);
+        //TC for validating Email with invalid case
+        [TestMethod]
+        [TestCategory("Customexception")]
+        [DataRow("abc@.com.my", "Invalid Email Id")]
 
-            //ASSERT
-            Assert.AreEqual(expected, actual);
+        public void InvalidEmail(string email, string expected)
+        {
+            try
+            {
+                var actual = obj.ValidatingFirstName(email);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(expected, ex.message);
+            }
+        }
+
+        //TC for validating phone numr with invalid case
+        [TestMethod]
+        [TestCategory("Customexception")]
+        [DataRow("23c597", "Invalid Mobile number")]
+
+        public void InvalidMobilenum(string mobileNum, string expected)
+        {
+            try
+            {
+                var actual = obj.ValidatingFirstName(mobileNum);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(expected, ex.message);
+            }
+        }
+
+        //TC for validating password with invalid case
+        [TestMethod]
+        [TestCategory("Customexception")]
+        [DataRow("23c597", "Invalid Password")]
+
+        public void InvalidpassWord(string psword, string expected)
+        {
+            try
+            {
+                var actual = obj.ValidatingFirstName(psword);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(expected, ex.message);
+            }
         }
     }
 }
