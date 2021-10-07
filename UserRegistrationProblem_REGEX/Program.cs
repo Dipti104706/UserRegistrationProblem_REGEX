@@ -10,9 +10,7 @@ namespace UserRegistrationProblem_REGEX
     {
         static void Main(string[] args)
         {
-            UserRegistration user = new UserRegistration();
-            user.Validation();
-            Console.ReadLine();
+            
         }
     }
 }

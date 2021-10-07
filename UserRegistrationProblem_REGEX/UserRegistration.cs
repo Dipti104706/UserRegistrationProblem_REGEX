@@ -7,36 +7,137 @@ using System.Threading.Tasks;
 
 namespace UserRegistrationProblem_REGEX
 {/// <summary>
-/// UC9 creating regular expression for testing all email sample
+/// UC10 for validate user details with default constructor
 /// </summary>
-    class UserRegistration
+    public class UserRegistration
     {
-        //writing the valid pattern
-        string email = "^[a-zA-Z0-9]+[._+-]{0,1}[a-zA-Z0-9]+@[a-zA-Z0-9]{1,10}[.][a-zA-Z]{2,10}[.]*[a-zA-Z]*$";
-        string[] inputs = {"abc@yahoo.com","abc-100@yahoo.com", "abc.100@yahoo.com","abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au","abc@1.com","abc@gmail.com.com", "abc+100@gmail.com",
-                            "abc","abc@.com.my","abc123@gmail.a","abc123@.com","abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com","abc..2002@gmail.com","abc.@gmail.com","abc@abc@gmail.com","abc@gmail.com.1a","abc@gmail.com.aa.au" };
-        /// <summary>
-        /// Validation this instance.
-        /// </summary>
-        public void Validation()
+        public string firstName;
+        public string lastName;
+        public string email;
+        public string mobile;
+        public string paasWord;
+
+        //Method for validating first name given by user
+        public string ValidatingFirstName(string firstName)
         {
-            Regex regex1 = new Regex(email);
-            Console.WriteLine("Validating Email id: ");
-            ItarateLoop(inputs, regex1);
-        }
-        public void ItarateLoop(string[] arr, Regex regex1)
-        {
-            for (int i = 0; i < arr.Length; i++)//validation Loop
+            string pattern = "^[A-Z]+[a-z]{3,}$";
+            Regex regex = new Regex(pattern);
+            bool input = regex.IsMatch(firstName);
+            try
             {
-                bool result = regex1.IsMatch(arr[i]);
-                if (result)
+                if (input)
                 {
-                    Console.WriteLine(arr[i] + ": is-->" + "Valid");
+                    Console.WriteLine(firstName + " ----->Valid");
+                    return "Valid";
                 }
                 else
                 {
-                    Console.WriteLine(arr[i] + ": is-->" + "Invalid");
+                    Console.WriteLine(firstName + " ----->Invalid");
+                    return "Invalid";
                 }
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        //Method for validatinglast name given by user
+        public string ValidatingLastName(string lastName)
+        {
+            string pattern = "^[A-Z]{1}[a-z]{2,}$";
+            Regex regex = new Regex(pattern);
+            bool input = regex.IsMatch(lastName);
+            try
+            {
+                if (input)
+                {
+                    Console.WriteLine(lastName + " ----->Valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine(lastName + " ----->Invalid");
+                    return "Invalid";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string ValidatingEmailId(string email)
+        {
+            string emailPattern = ("^[a-zA-Z0-9]+[._+-]{0,1}[a-zA-Z0-9]*@[a-zA-Z0-9]{1,10}.[a-zA-Z]{2,10}[.]*[a-zA-Z]*$");
+            Regex regex = new Regex(emailPattern);
+            bool input = regex.IsMatch(email);
+            try
+            {
+                if (input)
+                {
+                    Console.WriteLine(email + " ----->Valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine(email + " ----->Invalid");
+                    return "Invalid";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string ValidatingMobile(string mobile)
+        {
+            string phoneNumPattern = "^[0-9]{2}[  ]*[0-9]{10}$";
+            Regex regex = new Regex(phoneNumPattern);
+            bool input = regex.IsMatch(mobile);
+            try
+            {
+                if (input)
+                {
+                    Console.WriteLine(mobile + " ----->Valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine(mobile + " ----->Invalid");
+                    return "Invalid";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string ValidatingPassWord(string paasWord)
+        {
+            string passwordPattern = "^[a-zA-Z0-9]{1,}[A-Z]*[0-9]*[@&#%$*_-]+[a-zA-Z0-9]*$";
+            Regex regex = new Regex(passwordPattern);
+            bool input = regex.IsMatch(paasWord);
+            try
+            {
+                if (input)
+                {
+                    Console.WriteLine(paasWord + " ----->Valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine(paasWord + " ----->Invalid");
+                    return "Invalid";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
     }
