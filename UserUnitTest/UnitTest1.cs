@@ -16,87 +16,22 @@ namespace UserUnitTest
             obj = new UserRegistration();
         }
 
-        [TestMethod]
-        [TestCategory("Happygroup")]
-        [DataRow("Diptimayee")]
-
-        //TC for validating first name with both valid and invalid case
-        public void FirstNameValidation(string firstName)
-        {
-            //AAA Methology
-            //Arrange
-            string expected = "Valid";
-
-            //ACT
-            var actual = obj.ValidatingFirstName(firstName);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("Sadgroup")]
-        [DataRow("dip")]
-
-        public void InvalidFirstName(string firstName)
-        {
-            //AAA Methology
-            //Arrange
-            string expected ="Invalid";
-
-            //ACT
-            var actual = obj.ValidatingFirstName(firstName);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("Happygroup")]
-        [DataRow("Behura")]
-        //TC for validating last name with both valid and invalid case
-        public void LastNameValidation(string lastName)
-        {
-            //AAA Methology
-            //Arrange
-            string expected = "Valid";
-
-            //ACT
-            var actual = obj.ValidatingLastName(lastName);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("Sadgroup")]
-        [DataRow("d")]
-        public void InvalidLastName(string lastName)
-        {
-            //AAA Methology
-            //Arrange
-            string expected = "Invalid";
-
-            //ACT
-            var actual = obj.ValidatingLastName(lastName);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        //TC for validating Email with both valid and invalid case
+        //TC for validating multiple Email with both valid and invalid case
         [TestMethod]
         [TestCategory("Happygroup")]
         [DataRow("abc@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc.100@yahoo.com")]
+        [DataRow("abc111@abc.com")]
 
-        public void MailValidation(string lastName)
+        public void MailValidation(string mail)
         {
             //AAA Methology
             //Arrange
             string expected = "Valid";
 
             //ACT
-            var actual = obj.ValidatingEmailId(lastName);
+            var actual = obj.ValidatingEmailId(mail);
 
             //ASSERT
             Assert.AreEqual(expected, actual);
@@ -105,82 +40,17 @@ namespace UserUnitTest
         [TestMethod]
         [TestCategory("Sadgroup")]
         [DataRow("abc@.com.my")]
-        public void InvalidEmail(string lastName)
+        [DataRow("abc123@.com")]
+        [DataRow("abc123@.com.com")]
+
+        public void InvalidEmail(string mail)
         {
             //AAA Methology
             //Arrange
             string expected = "Invalid";
 
             //ACT
-            var actual = obj.ValidatingEmailId(lastName);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        //TC for validating phone numr with both valid and invalid case
-        [TestMethod]
-        [TestCategory("Happygroup")]
-        [DataRow("91 7055264706")]
-
-        public void MobileNumValidation(string phNum)
-        {
-            //AAA Methology
-            //Arrange
-            string expected = "Valid";
-
-            //ACT
-            var actual = obj.ValidatingMobile(phNum);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("Sadgroup")]
-        [DataRow("23c597")]
-        public void InvalidMobileNumber(string phNum)
-        {
-            //AAA Methology
-            //Arrange
-            string expected = "Invalid";
-
-            //ACT
-            var actual = obj.ValidatingMobile(phNum);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        //TC for validating password with both valid and invalid case
-        [TestMethod]
-        [TestCategory("Happygroup")]
-        [DataRow("sdAc@f1ghj")]
-
-        public void PasswordValidation(string psword)
-        {
-            //AAA Methology
-            //Arrange
-            string expected = "Valid";
-
-            //ACT
-            var actual = obj.ValidatingPassWord(psword);
-
-            //ASSERT
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("Sadgroup")]
-        [DataRow("Aa1sd")]
-        public void InvalidPassWord(string psword)
-        {
-            //AAA Methology
-            //Arrange
-            string expected = "Invalid";
-
-            //ACT
-            var actual = obj.ValidatingPassWord(psword);
+            var actual = obj.ValidatingEmailId(mail);
 
             //ASSERT
             Assert.AreEqual(expected, actual);
