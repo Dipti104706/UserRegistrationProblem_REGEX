@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace UserRegistrationProblem_REGEX
 {/// <summary>
-/// UC12 for refactoring user registraion to give custom exception message
+/// UC13 for refactoring user registraion to use lambda function
 /// </summary>
     public class UserRegistration
     {
